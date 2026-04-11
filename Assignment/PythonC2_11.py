@@ -1,0 +1,7 @@
+apple = int(input('enter your five digit numbrt: '))
+x =(int(apple / 10000)%10)
+s =(int(apple / 1000)%10)
+t =(int(apple / 100)%10)
+u=(int(apple / 10)%10)
+v =(int(apple %10))
+print(x, "   ", s, "   ", t,"   " , u, "   ", v)
