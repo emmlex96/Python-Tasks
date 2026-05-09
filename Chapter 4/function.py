@@ -1,0 +1,1 @@
+Each function call pushes a frame onto the stack. If you keep pushing without returning (popping), you eventually hit Python’s recursion limit and get a RecursionError: maximum recursion depth exceeded.

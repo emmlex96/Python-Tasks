@@ -1,0 +1,21 @@
+from decimal import Decimal, ROUND_HALF_UP, InvalidOperation
+
+def dollars_to_naira(dollar_amount):
+    EXCHANGE_RATE = Decimal("1550")
+    
+    try:
+        amount = Decimal(str(dollar_amount))
+    except (InvalidOperation, ValueError, TypeError):
+        raise ValueError(f"Invalid dollar amount: {dollar_amount!r}")
+    
+    if amount < 0:
+        raise ValueError("Dollar amount cannot be negative.")
+    
+    naira = (amount * EXCHANGE_RATE).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+    return float(naira)
+
+
+# Examples
+print(dollars_to_naira(1))       # 1550.0
+print(dollars_to_naira(0.99))    # 1534.5
+print(dollars_to_naira(100))     # 155000.0
